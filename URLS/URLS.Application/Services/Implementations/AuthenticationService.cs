@@ -8,6 +8,7 @@ using URLS.Application.Extensions;
 using URLS.Application.Helpers;
 using URLS.Application.Services.Interfaces;
 using URLS.Application.ViewModels;
+using URLS.Application.ViewModels.Firebase;
 using URLS.Application.ViewModels.Identity;
 using URLS.Application.ViewModels.RoleClaim;
 using URLS.Application.ViewModels.Session;
@@ -33,8 +34,9 @@ namespace URLS.Application.Services.Implementations
         private readonly ICommonService _commonService;
         private readonly ILocalizeService _localizeService;
         private readonly ISessionService _sessionService;
+        private readonly IPushNotificationService _pushNotificationService;
 
-        public AuthenticationService(URLSDbContext db, IIdentityService identityService, ISessionManager sessionManager, ILocationService locationService, ITokenService tokenService, IDetector detector, IMapper mapper, ICommonService commonService, IAppService appService, ILocalizeService localizeService, ISessionService sessionService)
+        public AuthenticationService(URLSDbContext db, IIdentityService identityService, ISessionManager sessionManager, ILocationService locationService, ITokenService tokenService, IDetector detector, IMapper mapper, ICommonService commonService, IAppService appService, ILocalizeService localizeService, ISessionService sessionService, IPushNotificationService pushNotificationService)
         {
             _db = db;
             _identityService = identityService;
@@ -47,6 +49,7 @@ namespace URLS.Application.Services.Implementations
             _appService = appService;
             _localizeService = localizeService;
             _sessionService = sessionService;
+            _pushNotificationService = pushNotificationService;
         }
 
         public async Task<Result<UserViewModel>> BlockUserConfigAsync(BlockUserModel model)
@@ -422,6 +425,12 @@ namespace URLS.Application.Services.Implementations
             await _db.SaveChangesAsync();
 
             _sessionManager.AddSession(new TokenModel(jwtToken.Token, jwtToken.ExpiredAt));
+
+            await _pushNotificationService.SendPushAsync(user.Id, new PushMessage
+            {
+                Title = $"{loginNotify.Title}",
+                Body = $"{loginNotify.Content}"
+            });
 
             if (user.MFA)
                 return Result<JwtToken>.MFA(sessionId.ToString());
