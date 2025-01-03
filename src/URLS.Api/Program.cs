@@ -85,8 +85,8 @@ public class Program
 
     private static void RegisterMiddlewares(IServiceCollection services)
     {
-        services.AddTransient<GlobalExceptionHandlerMiddleware>();
-        services.AddTransient<LoggingMiddleware>();
-        services.AddTransient<ETagMiddleware>();
+        services.AddScoped<GlobalExceptionHandlerMiddleware>();
+        services.AddScoped<LoggingMiddleware>();
+        services.AddScoped<ETagMiddleware>();
     }
 }
