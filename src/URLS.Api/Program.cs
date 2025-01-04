@@ -5,7 +5,7 @@ using URLS.Api.Logging;
 using URLS.Data;
 using URLS.Shared;
 
-namespace URLS.WebApi;
+namespace URLS.Api;
 
 public class Program
 {
@@ -41,6 +41,7 @@ public class Program
         }
 
         app.UseMiddleware<ETagMiddleware>();
+        app.UseMiddleware<CorrelationContextMiddleware>();
         app.UseMiddleware<LoggingMiddleware>();
         app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
@@ -85,8 +86,9 @@ public class Program
 
     private static void RegisterMiddlewares(IServiceCollection services)
     {
-        services.AddScoped<GlobalExceptionHandlerMiddleware>();
-        services.AddScoped<LoggingMiddleware>();
-        services.AddScoped<ETagMiddleware>();
+        services.AddTransient<CorrelationContextMiddleware>();
+        services.AddTransient<GlobalExceptionHandlerMiddleware>();
+        services.AddTransient<LoggingMiddleware>();
+        services.AddTransient<ETagMiddleware>();
     }
 }
