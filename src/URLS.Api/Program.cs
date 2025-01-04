@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Serilog;
 using URLS.Api.Infrastructure.Middlewares;
+using URLS.Api.Infrastructure.RateLimits;
 using URLS.Api.Logging;
 using URLS.Data;
 using URLS.Shared;
 
-namespace URLS.WebApi;
+namespace URLS.Api;
 
 public class Program
 {
@@ -47,6 +48,10 @@ public class Program
 
         app.UseHttpsRedirection();
 
+        app.UseAuthentication();
+        app.UseAuthorization();
+        app.UseRateLimiter();
+
         MapFeatureEndpoints(app);
 
         app.Run();
@@ -82,6 +87,7 @@ public class Program
         });
 
         services.AddSingleton(TimeProvider.System);
+        services.AddUserRateLimiting();
     }
 
     private static void RegisterMiddlewares(IServiceCollection services)

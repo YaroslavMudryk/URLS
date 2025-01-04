@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Time.Testing;
 using URLS.Data;
-using URLS.WebApi;
 
 namespace URLS.Api.Tests.IntegrationInfra;
 
