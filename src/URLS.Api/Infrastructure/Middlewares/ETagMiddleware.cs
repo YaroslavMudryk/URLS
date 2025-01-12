@@ -23,14 +23,14 @@ public class ETagMiddleware : IMiddleware
             response.Body = ms;
             await next(context);
 
-            if (context.Response.StatusCode != StatusCodes.Status200OK)
+            if (context.Response.StatusCode != StatusCodes.Status200OK
+                || context.Response.Headers.ContainsKey(HeaderNames.ETag)
+                || response.Body.Length > 1024 * 1024 * 2) //limit 2 Mb)
+            {
+                ms.Position = 0;
+                await ms.CopyToAsync(originalStream);
                 return;
-
-            if (context.Response.Headers.ContainsKey(HeaderNames.ETag))
-                return;
-
-            if (response.Body.Length > 1024 * 1024 * 2) //limit 2 Mb
-                return;
+            }
 
             ms.Position = 0;
             string checksum = HashingHelper.CalculateHash(ms);

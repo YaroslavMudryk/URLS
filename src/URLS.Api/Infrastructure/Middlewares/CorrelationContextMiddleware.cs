@@ -1,6 +1,7 @@
 ﻿using Serilog.Context;
 using URLS.Api.Infrastructure.Constants;
 using URLS.Api.Infrastructure.Helpers;
+using URLS.Shared.Auth;
 
 namespace URLS.Api.Infrastructure.Middlewares;
 
@@ -12,6 +13,7 @@ public class CorrelationContextMiddleware : IMiddleware
         ArgumentNullException.ThrowIfNull(next);
 
         var correlationId = context.GetOrAssignCorrelationId();
+        ((UserContext)context.RequestServices.GetService<IUserContext>()).CorrelationId = correlationId;
         context.Response.OnStarting(() =>
         {
             context.Response.Headers.Append(HttpHeadersConstants.CorrelationId, correlationId);

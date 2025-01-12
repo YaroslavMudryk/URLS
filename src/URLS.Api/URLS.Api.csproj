@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Features\URLS.Identity\URLS.Identity.csproj" />
     <ProjectReference Include="..\URLS.Data\URLS.Data.csproj" />
     <ProjectReference Include="..\URLS.Shared\URLS.Shared.csproj" />
   </ItemGroup>

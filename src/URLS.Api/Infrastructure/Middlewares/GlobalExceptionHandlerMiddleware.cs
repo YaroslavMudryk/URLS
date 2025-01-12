@@ -1,11 +1,12 @@
-﻿using URLS.Shared.Exceptions;
+﻿using FluentValidation;
 using URLS.Shared;
-using FluentValidation;
 using URLS.Shared.Api;
+using URLS.Shared.Auth;
+using URLS.Shared.Exceptions;
 
 namespace URLS.Api.Infrastructure.Middlewares;
 
-public class GlobalExceptionHandlerMiddleware(ILogger<GlobalExceptionHandlerMiddleware> logger) : IMiddleware
+public class GlobalExceptionHandlerMiddleware(ILogger<GlobalExceptionHandlerMiddleware> logger, IUserContext userContext) : IMiddleware
 {
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
@@ -44,13 +45,13 @@ public class GlobalExceptionHandlerMiddleware(ILogger<GlobalExceptionHandlerMidd
         {
             logger.LogUnexpectedException(nie);
             context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-            await context.Response.WriteAsJsonAsync(ApiResponse.Fail("This functionality is planned but not yet implemented, it will be available in the near future"), Settings.Json);
+            await context.Response.WriteAsJsonAsync(ApiResponse.Fail("This functionality is planned but not yet implemented, it will be available in the near future", userContext.CorrelationId), Settings.Json);
         }
         catch (Exception ex)
         {
             logger.LogUnexpectedException(ex);
             context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-            await context.Response.WriteAsJsonAsync(ApiResponse.Fail("Server error"), Settings.Json);
+            await context.Response.WriteAsJsonAsync(ApiResponse.Fail("Server error", userContext.CorrelationId), Settings.Json);
         }
     }
 }

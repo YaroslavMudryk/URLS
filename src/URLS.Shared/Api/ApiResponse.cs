@@ -25,6 +25,11 @@ public class ApiResponse
         return new ApiResponse(true, null, null, null);
     }
 
+    public static ApiResponse Fail(string message, string errorId)
+    {
+        return new ApiResponse(false, message, null, errorId);
+    }
+
     public static ApiResponse Fail(string message)
     {
         return new ApiResponse(false, message, null, null);
@@ -55,7 +60,7 @@ public class ApiResponse<T> : ApiResponse
 
 public static class ApiResponseExtensions
 {
-    public static ApiResponse MapToResponse<T>(this T data)
+    public static ApiResponse MapToResponse<T>(this T data) where T : IResponse
     {
         return ApiResponse<T>.Ok(data);
     }

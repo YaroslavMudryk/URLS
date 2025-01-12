@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Features", "Features", "{EF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.Data", "URLS.Data\URLS.Data.csproj", "{F4926E5A-4F4E-458D-A513-278E24901964}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.Identity", "Features\URLS.Identity\URLS.Identity.csproj", "{37C13C6A-17AA-466C-9537-3D8751AA7082}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,8 +37,15 @@ Global
 		{F4926E5A-4F4E-458D-A513-278E24901964}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4926E5A-4F4E-458D-A513-278E24901964}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4926E5A-4F4E-458D-A513-278E24901964}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37C13C6A-17AA-466C-9537-3D8751AA7082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37C13C6A-17AA-466C-9537-3D8751AA7082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37C13C6A-17AA-466C-9537-3D8751AA7082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37C13C6A-17AA-466C-9537-3D8751AA7082}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{37C13C6A-17AA-466C-9537-3D8751AA7082} = {EFB36567-1D83-48E5-AA83-0D20A5A05F5B}
 	EndGlobalSection
 EndGlobal
