@@ -6,9 +6,16 @@ using URLS.Api.Infrastructure.Middlewares;
 using URLS.Api.Logging;
 using URLS.Data;
 using URLS.Data.Audit;
+using URLS.Groups;
 using URLS.Identity;
+using URLS.LearningProcess;
+using URLS.Notifications;
+using URLS.Organization;
+using URLS.Reviews;
 using URLS.Shared;
 using URLS.Shared.Auth;
+using URLS.Testing;
+using URLS.University;
 
 namespace URLS.Api;
 
@@ -67,6 +74,13 @@ public class Program
         });
 
         IdentityEndpoints.Map(app);
+        GroupsEndpoints.Map(app);
+        LearningProcessEndpoints.Map(app);
+        NotificationsEndpoints.Map(app);
+        OrganizationEndpoints.Map(app);
+        ReviewsEndpoints.Map(app);
+        TestingEndpoints.Map(app);
+        UniversityEndpoints.Map(app);
     }
 
     private static void RegisterFeatureDependencies(IServiceCollection services)
@@ -74,7 +88,15 @@ public class Program
         services.AddScoped<IUserContext, UserContext>();
         services.AddScoped<AuditRepo>();
         services.AddScoped<ITokenResolverService, MockTokenResolverService>();
+
         IdentityDependencies.Register(services);
+        GroupsDependencies.Register(services);
+        LearningProcessDependencies.Register(services);
+        NotificationsDependencies.Register(services);
+        OrganizationDependencies.Register(services);
+        ReviewsDependencies.Register(services);
+        TestingDependencies.Register(services);
+        UniversityDependencies.Register(services);
     }
 
     private static void RegisterDbDependencies(WebApplicationBuilder builder)

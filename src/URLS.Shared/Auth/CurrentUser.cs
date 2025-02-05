@@ -1,4 +1,3 @@
-using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using URLS.Shared.Exceptions;
 
@@ -16,7 +15,7 @@ public record UnauthenticatedUser : CurrentUser
     public static UnauthenticatedUser Instance { get; } = new();
 }
 
-public record BasicAuthenticatedUser(int UserId, string SessionId, string Login, IEnumerable<Claim> Claims) : CurrentUser
+public record BasicAuthenticatedUser(int UserId, string SessionId, string Login, IEnumerable<ClaimPermissionDto> Claims) : CurrentUser
 {
     public void EnsureUserHasPermissions(string type, string value)
     {
@@ -42,7 +41,7 @@ public static class CurrentUserHelper
         var userIdClaim = httpContext.User.Claims.FirstOrDefault(s => s.Type == UrlsClaims.Types.UserId);
         var sessionIdClaim = httpContext.User.Claims.FirstOrDefault(s => s.Type == UrlsClaims.Types.SessionId);
         var loginClaim = httpContext.User.Claims.FirstOrDefault(s => s.Type == UrlsClaims.Types.Login);
-        var otherClaims = httpContext.User.Claims.Where(s => s.Type != UrlsClaims.Types.UserId && s.Type != UrlsClaims.Types.SessionId && s.Type != UrlsClaims.Types.Login);
+        var otherClaims = httpContext.User.Claims.Where(s => s.Type != UrlsClaims.Types.UserId && s.Type != UrlsClaims.Types.SessionId && s.Type != UrlsClaims.Types.Login).Select(s => new ClaimPermissionDto(s.Type, s.Value));
 
         if (userIdClaim is null || sessionIdClaim is null)
             return UnauthenticatedUser.Instance;
