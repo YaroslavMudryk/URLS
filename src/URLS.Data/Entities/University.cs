@@ -8,4 +8,5 @@ public class University : AuditableBaseModelWithIdentity<int>
     public string ShortName { get; set; }
     public string NameEng { get; set; }
     public string ShortNameEng { get; set; }
+    public List<Faculty> Faculties { get; set; }
 }
