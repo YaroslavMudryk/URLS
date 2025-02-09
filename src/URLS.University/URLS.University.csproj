@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 
 	<ItemGroup>
@@ -18,7 +17,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Features\" />
+	  <ProjectReference Include="..\URLS.Data\URLS.Data.csproj" />
+	  <ProjectReference Include="..\URLS.Shared\URLS.Shared.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Features\Faculties\DataAccess\" />
+	  <Folder Include="Features\Faculties\Dtos\Validators\" />
+	  <Folder Include="Features\Faculties\Services\" />
 	</ItemGroup>
 
 </Project>

@@ -60,7 +60,7 @@ public class ApiResponse<T> : ApiResponse
 
 public static class ApiResponseExtensions
 {
-    public static ApiResponse MapToResponse<T>(this T data) where T : IResponse
+    public static ApiResponse MapToResponse<T>(this T data)
     {
         return ApiResponse<T>.Ok(data);
     }

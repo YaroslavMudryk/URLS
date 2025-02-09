@@ -17,6 +17,7 @@ public class UrlsContext(DbContextOptions<UrlsContext> options) : DbContext(opti
     public DbSet<Claim> Claims { get; set; }
     public DbSet<AppClaim> AppClaims { get; set; }
     public DbSet<App> Apps { get; set; }
+    public DbSet<University> Universities { get; set; }
 
     public DbSet<AuditItem> Audits { get; set; }
 
@@ -110,6 +111,16 @@ public class UrlsContext(DbContextOptions<UrlsContext> options) : DbContext(opti
             entity.Property(p => p.Image).HasMaxLength(1500);
             entity.Property(p => p.ClientId).HasMaxLength(35).IsRequired();
             entity.Property(p => p.ClientSecret).HasMaxLength(35).IsRequired();
+        });
+
+        modelBuilder.Entity<University>(entity =>
+        {
+            entity.ToTable("universities");
+            entity.HasKey(e => e.Id);
+            entity.Property(p => p.Name).HasMaxLength(150);
+            entity.Property(p => p.ShortName).HasMaxLength(15);
+            entity.Property(p => p.NameEng).HasMaxLength(150);
+            entity.Property(p => p.ShortNameEng).HasMaxLength(15);
         });
 
         modelBuilder.Entity<AuditItem>(entity =>
