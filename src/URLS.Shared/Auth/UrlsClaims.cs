@@ -20,11 +20,12 @@ public static class UrlsClaims
 
     public static class Values
     {
-        public const string Create = "Create";
-        public const string Update = "Update";
-        public const string Delete = "Delete";
-        public const string SoftDelete = "SoftDelete";
-        public const string ViewAll = "ViewAll";
-        public const string View = "View";
+        public const string Create = nameof(Create);
+        public const string Update = nameof(Update);
+        public const string Delete = nameof(Delete);
+        public const string SoftDelete = nameof(SoftDelete);
+        public const string ViewAll = nameof(ViewAll);
+        public const string View = nameof(View);
+        public const string ChangeSecret = nameof(ChangeSecret);
     }
 }

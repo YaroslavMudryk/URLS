@@ -12,7 +12,7 @@ public class UniversityRepo(UrlsContext urlsContext)
         ArgumentNullException.ThrowIfNull(university);
 
         urlsContext.Universities.Add(university);
-        await urlsContext.SaveChangesAsync();
+        await urlsContext.SaveAsync();
         return university;
     }
 
@@ -29,7 +29,7 @@ public class UniversityRepo(UrlsContext urlsContext)
     {
         if (urlsContext.Entry(university).State is EntityState.Modified or EntityState.Unchanged)
         {
-            await urlsContext.SaveChangesAsync();
+            await urlsContext.SaveAsync();
             return university;
         }
 

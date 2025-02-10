@@ -9,4 +9,5 @@ public class Faculty : AuditableBaseModelWithIdentity<int>
     public int Order { get; set; }
     public int UniversityId { get; set; }
     public University University { get; set; }
+    public List<Specialty> Specialties { get; set; }
 }

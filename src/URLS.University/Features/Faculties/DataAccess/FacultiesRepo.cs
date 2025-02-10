@@ -12,7 +12,7 @@ public class FacultiesRepo(UrlsContext urlsContext)
         ArgumentNullException.ThrowIfNull(faculty);
 
         urlsContext.Faculties.Add(faculty);
-        await urlsContext.SaveChangesAsync();
+        await urlsContext.SaveAsync();
         return faculty;
     }
 
@@ -29,7 +29,7 @@ public class FacultiesRepo(UrlsContext urlsContext)
     {
         if (urlsContext.Entry(faculty).State is EntityState.Modified or EntityState.Unchanged)
         {
-            await urlsContext.SaveChangesAsync();
+            await urlsContext.SaveAsync();
             return faculty;
         }
 
@@ -41,7 +41,7 @@ public class FacultiesRepo(UrlsContext urlsContext)
         var faculty = await GetFacultyAsync(id);
 
         urlsContext.Remove(faculty!);
-        await urlsContext.SaveChangesAsync();
+        await urlsContext.SaveAsync();
     }
 
     private static void ThrowNotFound(int id)

@@ -19,6 +19,7 @@ public class UrlsContext(DbContextOptions<UrlsContext> options) : DbContext(opti
     public DbSet<App> Apps { get; set; }
     public DbSet<University> Universities { get; set; }
     public DbSet<Faculty> Faculties { get; set; }
+    public DbSet<Specialty> Specialties { get; set; }
 
     public DbSet<AuditItem> Audits { get; set; }
 
@@ -132,6 +133,16 @@ public class UrlsContext(DbContextOptions<UrlsContext> options) : DbContext(opti
             entity.Property(p => p.Name).HasMaxLength(150);
             entity.Property(p => p.NameEng).HasMaxLength(150);
             entity.HasIndex(p => p.Name).IsUnique().HasDatabaseName("idx_faculty_name");
+        });
+
+        modelBuilder.Entity<Specialty>(entity =>
+        {
+            entity.ToTable("specialties");
+            entity.HasKey(e => e.Id);
+            entity.Property(p => p.Name).HasMaxLength(150);
+            entity.Property(p => p.Code).HasMaxLength(10);
+            entity.Property(p => p.Invite).HasMaxLength(100);
+            entity.HasIndex(p => p.Name).IsUnique().HasDatabaseName("idx_specialty_name");
         });
 
 

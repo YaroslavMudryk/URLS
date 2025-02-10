@@ -36,7 +36,7 @@ public class AppRepo(UrlsContext urlsContext)
 
         if (urlsContext.Entry(app).State is EntityState.Modified or EntityState.Unchanged)
         {
-            await urlsContext.SaveChangesAsync();
+            await urlsContext.SaveAsync();
             return app;
         }
 
@@ -50,7 +50,7 @@ public class AppRepo(UrlsContext urlsContext)
             ThrowNotFound(id);
 
         urlsContext.Apps.Remove(app!);
-        await urlsContext.SaveChangesAsync();
+        await urlsContext.SaveAsync();
     }
     private static void ThrowNotFound(int id)
         => throw new NotFoundException($"App not found: Id = {id}.");
