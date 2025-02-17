@@ -10,4 +10,5 @@ public class Specialty : AuditableBaseModelWithIdentity<int>
     public string Invite { get; set; }
     public int FacultyId { get; set; }
     public Faculty Faculty { get; set; }
+    public List<Group> Groups { get; set; }
 }

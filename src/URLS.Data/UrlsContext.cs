@@ -20,6 +20,14 @@ public class UrlsContext(DbContextOptions<UrlsContext> options) : DbContext(opti
     public DbSet<University> Universities { get; set; }
     public DbSet<Faculty> Faculties { get; set; }
     public DbSet<Specialty> Specialties { get; set; }
+    public DbSet<Group> Groups { get; set; }
+    public DbSet<UserGroup> UserGroups { get; set; }
+    public DbSet<UserGroupRole> UserGroupRoles { get; set; }
+    public DbSet<GroupInvite> GroupInvites { get; set; }
+    public DbSet<GroupPost> Posts { get; set; }
+    public DbSet<PostComment> Comments { get; set; }
+    public DbSet<PostReaction> Reactions { get; set; }
+
 
     public DbSet<AuditItem> Audits { get; set; }
 
