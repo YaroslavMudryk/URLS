@@ -15,19 +15,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.Data", "URLS.Data\URLS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.Identity", "Features\URLS.Identity\URLS.Identity.csproj", "{37C13C6A-17AA-466C-9537-3D8751AA7082}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.Groups", "URLS.Groups\URLS.Groups.csproj", "{93AD2114-CEAA-4505-B6E2-7D141572D2FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.Groups", "Features\URLS.Groups\URLS.Groups.csproj", "{93AD2114-CEAA-4505-B6E2-7D141572D2FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.LearningProcess", "URLS.LearningProcess\URLS.LearningProcess.csproj", "{96D938D0-14F1-4067-81B8-D962CDF1707C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.LearningProcess", "Features\URLS.LearningProcess\URLS.LearningProcess.csproj", "{96D938D0-14F1-4067-81B8-D962CDF1707C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.Notifications", "URLS.Notifications\URLS.Notifications.csproj", "{4F3A5595-88C5-4B53-907D-3F883D5FF9C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.Notifications", "Features\URLS.Notifications\URLS.Notifications.csproj", "{4F3A5595-88C5-4B53-907D-3F883D5FF9C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.Organization", "URLS.Organization\URLS.Organization.csproj", "{CF3CA724-CCC5-400D-9A83-8115BD49E95B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.Organization", "Features\URLS.Organization\URLS.Organization.csproj", "{CF3CA724-CCC5-400D-9A83-8115BD49E95B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.Reviews", "URLS.Reviews\URLS.Reviews.csproj", "{097930A4-CCD1-46CB-9AAD-65280C9B0DE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.Reviews", "Features\URLS.Reviews\URLS.Reviews.csproj", "{097930A4-CCD1-46CB-9AAD-65280C9B0DE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.Testing", "URLS.Testing\URLS.Testing.csproj", "{912ECD05-4C1F-4C89-8C5C-814095D450D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.Testing", "Features\URLS.Testing\URLS.Testing.csproj", "{912ECD05-4C1F-4C89-8C5C-814095D450D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.University", "URLS.University\URLS.University.csproj", "{B0FA7DDF-ACB5-4978-A686-42950ABF3475}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLS.University", "Features\URLS.University\URLS.University.csproj", "{B0FA7DDF-ACB5-4978-A686-42950ABF3475}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

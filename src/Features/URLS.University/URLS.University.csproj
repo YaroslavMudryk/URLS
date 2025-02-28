@@ -17,8 +17,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\URLS.Data\URLS.Data.csproj" />
-	  <ProjectReference Include="..\URLS.Shared\URLS.Shared.csproj" />
+	  <ProjectReference Include="..\..\URLS.Data\URLS.Data.csproj" />
+	  <ProjectReference Include="..\..\URLS.Shared\URLS.Shared.csproj" />
 	</ItemGroup>
 
 </Project>
