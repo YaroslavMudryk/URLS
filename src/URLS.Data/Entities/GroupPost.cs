@@ -15,6 +15,8 @@ public class GroupPost : AuditableBaseModelWithIdentity<int>
     public bool AvailableToComment { get; set; }
     [Required]
     public bool IsPublic { get; set; }
+    public DateTime AvailableAfter { get; set; }
+    public long AvailableAfterUnix { get; set; }
     public int[] AvailableReactionIds { get; set; }
     public bool IsAvailableReactions { get; set; }
     public int UserId { get; set; }

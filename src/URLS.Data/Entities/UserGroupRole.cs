@@ -19,6 +19,7 @@ public class UserGroupRole : AuditableBaseModelWithIdentity<int>
     public bool CanEdit { get; set; }
     [Required]
     public string UniqId { get; set; }
+    public int Order { get; set; }
     public UserGroupPermission Permissions { get; set; }
     public List<UserGroup> UserGroups { get; set; }
 }

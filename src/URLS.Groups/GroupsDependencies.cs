@@ -72,6 +72,8 @@ public static class GroupsDependencies
         services.AddScoped<ReactionsRepo>();
         services.AddScoped<UserGroupsRepo>();
 
+        services.AddScoped<GroupsQuery>();
+
         //Services
 
 
