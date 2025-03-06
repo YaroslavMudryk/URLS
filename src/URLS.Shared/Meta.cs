@@ -6,9 +6,11 @@ public class Meta
     {
         return new Meta
         {
+            TotalCount = totalCount,
             TotalPages = PaginationHelper.GetTotalPages(totalCount, per),
         };
     }
 
+    public int TotalCount { get; set; }
     public int TotalPages { get; set; }
 }

@@ -27,8 +27,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\URLS.Data\URLS.Data.csproj" />
-    <ProjectReference Include="..\URLS.Shared\URLS.Shared.csproj" />
+    <ProjectReference Include="..\Features\URLS.Groups\URLS.Groups.csproj" />
+    <ProjectReference Include="..\Features\URLS.Identity\URLS.Identity.csproj" />
+    <ProjectReference Include="..\Features\URLS.LearningProcess\URLS.LearningProcess.csproj" />
+    <ProjectReference Include="..\Features\URLS.Notifications\URLS.Notifications.csproj" />
+    <ProjectReference Include="..\Features\URLS.Organization\URLS.Organization.csproj" />
+    <ProjectReference Include="..\Features\URLS.Reviews\URLS.Reviews.csproj" />
+    <ProjectReference Include="..\Features\URLS.Testing\URLS.Testing.csproj" />
+    <ProjectReference Include="..\Features\URLS.University\URLS.University.csproj" />
   </ItemGroup>
 
 </Project>
